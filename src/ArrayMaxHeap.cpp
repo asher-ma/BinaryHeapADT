@@ -58,8 +58,14 @@ ItemType ArrayMaxHeap<ItemType>::peekTop() const {
 template <typename ItemType>
 bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {}
 
+// Removes item from top of heap
 template <typename ItemType>
-bool ArrayMaxHeap<ItemType>::remove() {}
+bool ArrayMaxHeap<ItemType>::remove() {
+    items[0] = items[itemCount-1]; // Move item to end
+    itemCount--; // Shorten itemCount
+    heapRebuild(0); // Ensure heap property is followed
+    return true;
+}
 
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::clear() {}
