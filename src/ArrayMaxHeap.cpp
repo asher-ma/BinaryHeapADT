@@ -73,7 +73,12 @@ int ArrayMaxHeap<ItemType>::getParentIndex(int nodeIndex) const {
 }
 
 template <typename ItemType>
-bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {}
+bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {
+    if (getLeftChildIndex(nodeIndex) >= itemCount) {
+        return true;
+    }
+    return false;
+}
 
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {}
