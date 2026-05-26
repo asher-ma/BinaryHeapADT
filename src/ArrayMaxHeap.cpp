@@ -1,5 +1,6 @@
 #include "../Include/HeapInterface.h"
 #include "../Include/ArrayMaxHeap.h"
+#include <cmath>
 
 
 // Constructors ------------------------------------------------------------------------------------------
@@ -22,16 +23,27 @@ ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {}
 // Public methods -----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-bool ArrayMaxHeap<ItemType>::isEmpty() const {}
+bool ArrayMaxHeap<ItemType>::isEmpty() const {
+    return itemCount == 0;
+}
 
 template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getNumberOfNodes() const {}
+int ArrayMaxHeap<ItemType>::getNumberOfNodes() const {
+    return itemCount;
+}
 
 template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getHeight() const {}
+int ArrayMaxHeap<ItemType>::getHeight() const {
+    if (itemCount == 0) {
+        return 0;
+    }
+    return ceil(std::log2(itemCount+1));
+}
 
 template <typename ItemType>
-ItemType ArrayMaxHeap<ItemType>::peekTop() const {}
+ItemType ArrayMaxHeap<ItemType>::peekTop() const {
+    return items[0];
+}
 
 template <typename ItemType>
 bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {}
