@@ -11,13 +11,21 @@ HeapPriorityQueue<ItemType>::HeapPriorityQueue() {}
 // -----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-bool HeapPriorityQueue<ItemType>::isEmpty() const {}
+bool HeapPriorityQueue<ItemType>::isEmpty() const {
+    return ArrayMaxHeap<ItemType>::isEmpty();
+}
 
 template <typename ItemType>
-bool HeapPriorityQueue<ItemType>::add(const ItemType& newEntry) {}
+bool HeapPriorityQueue<ItemType>::add(const ItemType& newEntry) {
+    return ArrayMaxHeap<ItemType>::add(newEntry);
+}
 
 template <typename ItemType>
-bool HeapPriorityQueue<ItemType>::remove() {}
+bool HeapPriorityQueue<ItemType>::remove() {
+    return ArrayMaxHeap<ItemType>::remove();
+}
 
 template <typename ItemType>
-ItemType HeapPriorityQueue<ItemType>::peek() const {}
+ItemType HeapPriorityQueue<ItemType>::peek() const {
+    return ArrayMaxHeap<ItemType>::peekTop();
+}
