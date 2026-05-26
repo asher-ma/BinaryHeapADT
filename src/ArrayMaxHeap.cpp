@@ -4,7 +4,7 @@
 
 
 // Constructors
------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
 
 //Default constructor
 template <typename ItemType>
@@ -27,7 +27,7 @@ ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {}
 
 
 // Public methods
-----------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
 
 template <typename ItemType>
 bool ArrayMaxHeap<ItemType>::isEmpty() const {
@@ -106,7 +106,7 @@ void ArrayMaxHeap<ItemType>::clear() {
 
 
 // Private methods
-----------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
 
 template <typename ItemType>
 int ArrayMaxHeap<ItemType>::getLeftChildIndex(const int nodeIndex) const {
@@ -161,15 +161,5 @@ void ArrayMaxHeap<ItemType>::heapCreate() {
         heapRebuild(i); // Call heapRebuild 
     }
 }
-
-template <typename ItemType>
-void ArrayMaxHeap<ItemType>::heapSort(ItemType someArray[], const int arraySize) {
-    ArrayMaxHeap<ItemType> heap(someArray[], arraySize);
-    for (int i = arraySize - 1; i >= 0; i--) { // For each item (from back to front)
-        someArray[i] = heap.peekTop(); // Overwrite coresponding position in given array
-        heap.remove(); // Remove it from heap
-    }
-}
-
 
 // End of ArrayMaxHeap.cpp
