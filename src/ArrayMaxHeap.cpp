@@ -70,7 +70,12 @@ bool ArrayMaxHeap<ItemType>::remove() {
 }
 
 template <typename ItemType>
-void ArrayMaxHeap<ItemType>::clear() {}
+void ArrayMaxHeap<ItemType>::clear() {
+    for (int i = 0; i < itemCount; i++) { // For each item
+        items[i] = ItemType(); // Clear it
+    }
+    itemCount = 0;
+}
 
 
 // Private methods ----------------------------------------------------------------------------------------
