@@ -120,5 +120,11 @@ void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {
     }
 }
 
+// Ensures items[] member array follows heap property
 template <typename ItemType>
-void ArrayMaxHeap<ItemType>::heapCreate() {}
+void ArrayMaxHeap<ItemType>::heapCreate() {
+    // Call heapRebuild on upper half of items, from middle to top
+    for (int i = itemCount/2; i >= 0; i--) {
+        heapRebuild(i);
+    }
+}
