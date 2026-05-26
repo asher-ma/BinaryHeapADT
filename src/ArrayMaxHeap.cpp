@@ -4,12 +4,17 @@
 
 // Constructors ------------------------------------------------------------------------------------------
 
+//Default constructor
 template <typename ItemType>
-ArrayMaxHeap<ItemType>::ArrayMaxHeap() {}
+ArrayMaxHeap<ItemType>::ArrayMaxHeap()
+         : items(new ItemType[DEFAULT_CAPACITY]), itemCount(0), maxItems(DEFAULT_CAPACITY) {}
 
+// Parameterized contructor
 template <typename ItemType>
-ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize) {}
+ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize)
+         : items(someArray[]), itemCount(arraySize), maxItems(DEFAULT_CAPACITY) {}
 
+// Destructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {}
 
