@@ -39,7 +39,7 @@ int ArrayMaxHeap<ItemType>::getNumberOfNodes() const {
 
 template <typename ItemType>
 int ArrayMaxHeap<ItemType>::getHeight() const {
-    if (itemCount == 0) {
+    if (this->isEmpty()) {
         return 0;
     }
     return ceil(std::log2(itemCount+1));
@@ -47,6 +47,9 @@ int ArrayMaxHeap<ItemType>::getHeight() const {
 
 template <typename ItemType>
 ItemType ArrayMaxHeap<ItemType>::peekTop() const {
+    if (this->isEmpty()) {
+        throw PrecondViolatedExcep("Attempted to peek into empty heap");
+    }
     return items[0];
 }
 
