@@ -14,12 +14,10 @@ ArrayMaxHeap<ItemType>::ArrayMaxHeap()
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize)
         : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[maxItems]) {
-    // Copy array contents into heap array
-    for (int i = 0; i < arraySize; i++) {
+    for (int i = 0; i < arraySize; i++) { // Copy array contents into heap array
         this->items[i] = someArray[i];
     }
-    // Reorder contents to obey heap condition
-    this->heapCreate();
+    this->heapCreate(); // Reorder contents to obey heap condition
 }
 
 // Destructor
@@ -105,32 +103,24 @@ void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {
     int r = getRightChildIndex(subTreeRootIndex);
     int largest = subTreeRootIndex;
 
-    // If left child is larger than parent
-    if (l <= itemCount && items[l] > items[subTreeRootIndex]) {
-        // Overwrite largest with left child
-        largest = l;
+    if (l <= itemCount && items[l] > items[subTreeRootIndex]) { // If left child is larger than parent
+        largest = l; // Overwrite largest with left child
     }
-    // If right child is larger than left child
-    if (r <= itemCount && items[r] > items[largest]) {
-        // Overwrite largest with right child
-        largest = r;
+    if (r <= itemCount && items[r] > items[largest]) { // If right child is larger than left child
+        largest = r; // Overwrite largest with right child
     }
-    // If largest is not parent
-    if (largest != subTreeRootIndex) {
-        // Swap parent with largest
-        int temp = items[subTreeRootIndex]; // TODO: Use ItemType instead of int(?)
+    if (largest != subTreeRootIndex) { // If largest is not parent
+        int temp = items[subTreeRootIndex]; // Swap parent with largest // TODO: Use ItemType instead of int(?)
         items[subTreeRootIndex] = items[largest];
         items[largest] = temp;
-        // Call heapRebuild on node in new location
-        heapRebuild(largest);
+        heapRebuild(largest); // Call heapRebuild on node in new location
     }
 }
 
 // Ensures items[] member array follows heap property
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::heapCreate() {
-    // Call heapRebuild on upper half of items, from middle to top
-    for (int i = itemCount/2; i >= 0; i--) {
-        heapRebuild(i);
+    for (int i = itemCount/2; i >= 0; i--) { // On upper half of items, from middle to top
+        heapRebuild(i); // Call heapRebuild 
     }
 }
