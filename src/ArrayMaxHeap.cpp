@@ -8,12 +8,17 @@
 //Default constructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::ArrayMaxHeap()
-         : items(new ItemType[DEFAULT_CAPACITY]), itemCount(0), maxItems(DEFAULT_CAPACITY) {}
+        : items(new ItemType[DEFAULT_CAPACITY]), itemCount(0), maxItems(DEFAULT_CAPACITY) {}
 
 // Parameterized contructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize)
-         : items(someArray[]), itemCount(arraySize), maxItems(DEFAULT_CAPACITY) {}
+        : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[maxItems]) {
+    for (int i = 0; i < arraySize; i++) {
+        this->items[i] = someArray[i];
+    }
+    this->heapCreate();
+}
 
 // Destructor
 template <typename ItemType>
