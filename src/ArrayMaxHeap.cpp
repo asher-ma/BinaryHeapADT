@@ -58,13 +58,19 @@ void ArrayMaxHeap<ItemType>::clear() {}
 // Private methods ----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getLeftChildIndex(const int nodeIndex) const {}
+int ArrayMaxHeap<ItemType>::getLeftChildIndex(const int nodeIndex) const {
+    return 2*nodeIndex;
+}
 
 template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getRightChildIndex(int nodeIndex) const {}
+int ArrayMaxHeap<ItemType>::getRightChildIndex(int nodeIndex) const {
+    return 2*nodeIndex + 1;
+}
 
 template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getParentIndex(int nodeIndex) const {}
+int ArrayMaxHeap<ItemType>::getParentIndex(int nodeIndex) const {
+    return floor(nodeIndex/2);
+}
 
 template <typename ItemType>
 bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {}
