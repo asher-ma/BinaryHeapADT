@@ -31,12 +31,12 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         bool isEmpty() const ;
         int getNumberOfNodes() const ;
         int getHeight() const ;
-        ItemType peekTop() const throw (PrecondViolatedExcep);
+        ItemType peekTop() const ; // throw (PrecondViolatedExcep);
         bool add(const ItemType& newData);
         bool remove();
         void clear();
 }; // end ArrayMaxHeap
 
-#include "ArrayMaxHeap.cpp"
+#include "../src/ArrayMaxHeap.cpp"
 
 #endif

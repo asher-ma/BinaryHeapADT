@@ -1,5 +1,5 @@
-#include "../Include/HeapInterface.h"
-#include "../Include/ArrayMaxHeap.h"
+#include "HeapInterface.h"
+#include "ArrayMaxHeap.h"
 #include <cmath>
 
 
