@@ -53,8 +53,29 @@ ItemType ArrayMaxHeap<ItemType>::peekTop() const {
     return items[0];
 }
 
+// Adds new data to heap and enforces heap property
 template <typename ItemType>
-bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {}
+bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {
+    if (itemCount == maxItems) { // If heap is full, return false
+        return false;
+    }
+    items[itemCount] = newData; // Add new data to end of heap
+    int newDataIndex = itemCount;
+    bool inPlace = false;
+    while ((newDataIndex >= 0) && !inPlace) { // While new data is not inPlace
+        int parentIndex = getParentIndex(newDataIndex);
+        if (items[newDataIndex] <= items[parentIndex]) { // If data is smaller than or equal to parent
+            inPlace = true; // It is in place
+        } else {
+            int temp = items[newDataIndex]; // Replace data with parent (moving it up heap) // TODO: Use ItemType instead of int(?)
+            items[newDataIndex] = items[parentIndex];
+            items[parentIndex] = temp;
+            newDataIndex = parentIndex;
+        }
+    }
+    itemCount++;
+    return inPlace; // (true)
+}
 
 // Removes root from top of heap
 template <typename ItemType>
