@@ -162,4 +162,14 @@ void ArrayMaxHeap<ItemType>::heapCreate() {
     }
 }
 
+template <typename ItemType>
+void ArrayMaxHeap<ItemType>::heapSort(ItemType someArray[], const int arraySize) {
+    ArrayMaxHeap<ItemType> heap(someArray[], arraySize);
+    for (int i = arraySize - 1; i >= 0; i--) { // For each item (from back to front)
+        someArray[i] = heap.peekTop(); // Overwrite coresponding position in given array
+        heap.remove(); // Remove it from heap
+    }
+}
+
+
 // End of ArrayMaxHeap.cpp
