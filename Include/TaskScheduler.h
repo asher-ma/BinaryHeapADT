@@ -8,7 +8,7 @@ class TaskScheduler : private HeapPriorityQueue<ItemType> {
     public:
         TaskScheduler();
 
-        bool addTask(const ItemType& newTask) ;
+        bool addTask(const ItemType& taskDesc, int priority) ;
         bool executeTask() ;
         ItemType peekNextTask() const ;
         void displayTasks() const ;

@@ -1,4 +1,5 @@
 #include "TaskScheduler.h"
+#include "Task.h"
 #include <iostream>
 
 
@@ -12,7 +13,13 @@ TaskScheduler<ItemType>::TaskScheduler() {}
 // -----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-bool TaskScheduler<ItemType>::addTask(const ItemType& newTask) {}
+bool TaskScheduler<ItemType>::addTask(const string taskId, const string taskDesc, const int priority) {
+    Task currentTask;
+    currentTask.id = taskId;
+    currentTask.description = taskDesc;
+    currentTask.priority = priority;
+    return ArrayMaxHeap<Task>::add(currentTask);
+}
 
 template <typename ItemType>
 bool TaskScheduler<ItemType>::executeTask() {}
