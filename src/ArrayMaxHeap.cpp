@@ -70,7 +70,7 @@ bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {
     bool inPlace = false;
     while ((newDataIndex > 0) && !inPlace) { // While new data is not inPlace
         int parentIndex = getParentIndex(newDataIndex);
-        if (items[newDataIndex] <= items[parentIndex]) { // If data is smaller than or equal to parent
+        if (isMinHeap ? items[newDataIndex] >= items[parentIndex] : items[newDataIndex] <= items[parentIndex]) { // If data is smaller than or equal to parent
             inPlace = true; // It is in place
         } else {
             ItemType temp = items[newDataIndex]; // Replace data with parent (moving it up heap)
@@ -134,7 +134,7 @@ bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {
 // Decides which way to rebuild heap depending on isMinHeap value
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {
-    if (isMinHeap == true) {
+    if (isMinHeap) {
         minHeapRebuild(subTreeRootIndex);
     } else {
         maxHeapRebuild(subTreeRootIndex);
@@ -150,14 +150,14 @@ void ArrayMaxHeap<ItemType>::maxHeapRebuild(int subTreeRootIndex) {
     int r = getRightChildIndex(subTreeRootIndex);
     int largest = subTreeRootIndex;
 
-    if (l <= itemCount && items[l] > items[subTreeRootIndex]) { // If left child is larger than parent
+    if (l < itemCount && items[l] > items[subTreeRootIndex]) { // If left child is larger than parent
         largest = l; // Overwrite largest with left child
     }
-    if (r <= itemCount && items[r] > items[largest]) { // If right child is larger than current largest
+    if (r < itemCount && items[r] > items[largest]) { // If right child is larger than current largest
         largest = r; // Overwrite largest with right child
     }
     if (largest != subTreeRootIndex) { // If largest is not parent
-        int temp = items[subTreeRootIndex]; // Swap parent with largest // TODO: Use ItemType instead of int(?)
+        ItemType temp = items[subTreeRootIndex]; // Swap parent with largest
         items[subTreeRootIndex] = items[largest];
         items[largest] = temp;
         heapRebuild(largest); // Call heapRebuild on node in new location
@@ -173,14 +173,14 @@ void ArrayMaxHeap<ItemType>::minHeapRebuild(int subTreeRootIndex) {
     int r = getRightChildIndex(subTreeRootIndex);
     int smallest = subTreeRootIndex;
 
-    if (l <= itemCount && items[l] < items[subTreeRootIndex]) { // If left child is smaller than parent
+    if (l < itemCount && items[l] < items[subTreeRootIndex]) { // If left child is smaller than parent
         smallest = l; // Overwrite smallest with left child
     }
-    if (r <= itemCount && items[r] < items[smallest]) { // If right child is smaller than current smallest
+    if (r < itemCount && items[r] < items[smallest]) { // If right child is smaller than current smallest
         smallest = r; // Overwrite smallest with right child
     }
     if (smallest != subTreeRootIndex) { // If smallest is not parent
-        int temp = items[subTreeRootIndex]; // Swap parent with smallest // TODO: Use ItemType instead of int(?)
+        ItemType temp = items[subTreeRootIndex]; // Swap parent with smallest
         items[subTreeRootIndex] = items[smallest];
         items[smallest] = temp;
         heapRebuild(smallest); // Call heapRebuild on node in new location
