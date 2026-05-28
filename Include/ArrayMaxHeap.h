@@ -21,8 +21,6 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         int getParentIndex(int nodeIndex) const;
         bool isLeaf(int nodeIndex) const;
         void heapRebuild(int subTreeRootIndex);
-        void maxHeapRebuild(int subTreeRootIndex);
-        void minHeapRebuild(int subTreeRootIndex);
         void heapCreate();
 
     public :
