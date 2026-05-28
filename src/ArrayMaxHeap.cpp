@@ -8,13 +8,13 @@
 
 //Default constructor
 template <typename ItemType>
-ArrayMaxHeap<ItemType>::ArrayMaxHeap()
-        : items(new ItemType[DEFAULT_CAPACITY]), itemCount(0), maxItems(DEFAULT_CAPACITY) {}
+ArrayMaxHeap<ItemType>::ArrayMaxHeap(bool isMinHeap)
+        : items(new ItemType[DEFAULT_CAPACITY]), itemCount(0), maxItems(DEFAULT_CAPACITY), isMinHeap(isMinHeap) {}
 
 // Parameterized contructor
 template <typename ItemType>
-ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize)
-        : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[maxItems]) {
+ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize, bool isMinHeap)
+        : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[maxItems]), isMinHeap(isMinHeap) {
     for (int i = 0; i < arraySize; i++) { // Copy array contents into heap array
         this->items[i] = someArray[i];
     }

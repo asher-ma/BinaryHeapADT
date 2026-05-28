@@ -14,6 +14,7 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         ItemType* items; // Array of heap items
         int itemCount; // Current count of heap items
         int maxItems; // Maximum capacity of the heap
+        bool isMinHeap; // Configures if heap is max or min
         
         int getLeftChildIndex(const int nodeIndex) const;
         int getRightChildIndex(int nodeIndex) const;
@@ -23,8 +24,8 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         void heapCreate();
 
     public :
-        ArrayMaxHeap();
-        ArrayMaxHeap(const ItemType someArray[], const int arraySize);
+        ArrayMaxHeap(bool isMinHeap = false); // Constructors default to maxHeap
+        ArrayMaxHeap(const ItemType someArray[], const int arraySize, bool isMinHeap = false);
         virtual ~ArrayMaxHeap();
 
         // HeapInterface Public Methods:
