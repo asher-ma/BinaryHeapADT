@@ -70,7 +70,7 @@ bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {
     bool inPlace = false;
     while ((newDataIndex > 0) && !inPlace) { // While new data is not inPlace
         int parentIndex = getParentIndex(newDataIndex);
-        if (isMinHeap ? items[newDataIndex] >= items[parentIndex] : items[newDataIndex] <= items[parentIndex]) { // If data is smaller than or equal to parent
+        if (isMinHeap ? items[newDataIndex] >= items[parentIndex] : items[newDataIndex] <= items[parentIndex]) { // If data is smaller than or equal to parent OR opposite for minHeap
             inPlace = true; // It is in place
         } else {
             ItemType temp = items[newDataIndex]; // Replace data with parent (moving it up heap)
