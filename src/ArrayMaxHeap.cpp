@@ -131,7 +131,7 @@ bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {
     return false;
 }
 
-// Decides which way to rebuild heap depending on if it is min or max
+// Decides which way to rebuild heap depending on isMinHeap value
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {
     if (isMinHeap == true) {
