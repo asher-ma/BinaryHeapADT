@@ -41,5 +41,4 @@ template <typename ItemType>
 void TaskScheduler<ItemType>::displayTasks() const {
     std::cout << "All tasks: " << std::endl;
     taskQueue.printQueue();
-    std::cout << std::endl;
 }

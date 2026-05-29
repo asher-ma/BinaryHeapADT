@@ -7,7 +7,7 @@
 #include "TaskScheduler.h"
 
 void displayMenu() {
-    std::cout << "========== HEAP MENU ==========\n";
+    std::cout << "\n========== HEAP MENU ==========\n";
     std::cout << "1. Build Heap\n";
     std::cout << "2. Insert\n";
     std::cout << "3. Extract Root\n";
@@ -30,13 +30,13 @@ int main() {
         if (!(std::cin >> choice)) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a number between 1 and 8.\n";
+            std::cout << "\n\nInvalid input. Please enter a number between 1 and 8.\n";
             continue;
         }
 
         switch (choice) {
             case 1: {
-                std::cout << "Building heap from array: ";
+                std::cout << "\n\nBuilding heap from array: ";
                 int values[7] = {2, 5, 8, 1, 3, 6, 10};
                 for (int num : values) {
                     std::cout << num << ", ";
@@ -48,9 +48,9 @@ int main() {
             }
             case 2: {
                 if (!heapBuilt) {
-                    std::cout << "Build the heap first (option 1).\n";
+                    std::cout << "\n\nBuild the heap first (option 1).\n";
                 } else {
-                    std::cout << "Enter value to insert: ";
+                    std::cout << "\n\nEnter value to insert: ";
                     int value;
                     std::cin >> value;
                     heap.add(value);
@@ -60,33 +60,33 @@ int main() {
             }
             case 3: {
                 if (heap.isEmpty()) {
-                    std::cout << "Heap is empty. Nothing to extract.\n";
+                    std::cout << "\n\nHeap is empty. Nothing to extract.\n";
                 } else {
-                    std::cout << "Extracted root: " << heap.peekTop() << "\n";
+                    std::cout << "\n\nExtracted root: " << heap.peekTop() << "\n";
                     heap.remove();
                 }
                 break;
             }
             case 4: {
                 if (heap.isEmpty()) {
-                    std::cout << "Heap is empty. No root to peek.\n";
+                    std::cout << "\n\nHeap is empty. No root to peek.\n";
                 } else {
-                    std::cout << "Current root: " << heap.peekTop() << "\n";
+                    std::cout << "\n\nCurrent root: " << heap.peekTop() << "\n";
                 }
                 break;
             }
             case 5: {
                 if (heap.isEmpty()) {
-                    std::cout << "Heap is empty. Nothing to print.\n";
+                    std::cout << "\n\nHeap is empty. Nothing to print.\n";
                 } else {
-                    std::cout << "Heap contents (by descending priority): ";
+                    std::cout << "\n\nHeap contents (by descending priority): ";
                     heap.printHeap();
                 }
                 break;
             }
             case 6: {
                 int array2[10] = {2, 5, 8, 1, 3, 6, 10, 4, 7, 9};
-                std::cout << "\nHeap Sort Demo:\n";
+                std::cout << "\n\nHeap Sort Demo:\n";
                 std::cout << "Unsorted Array: ";
                 for (int item : array2) {
                     std::cout << item << " ";
@@ -103,7 +103,7 @@ int main() {
             case 7: {
                 TaskScheduler<std::string> scheduler;
 
-                std::cout << "\nTask Scheduler Demo:\n";
+                std::cout << "\n\nTask Scheduler Demo:\n";
                 scheduler.addTask("Task 1", 10, "Construct UML Diagram");
                 scheduler.addTask("Task 2", 5, "Write technical report");
                 scheduler.addTask("Task 3", 20, "Finish TaskScheduler implementation");
@@ -116,7 +116,7 @@ int main() {
             }
             case 8:
                 running = false;
-                std::cout << "Exiting.\n";
+                std::cout << "\n\nExiting.\n";
                 break;
             default:
                 std::cout << "Please choose a valid option (1-8).\n";
