@@ -1,6 +1,7 @@
 #ifndef _TASK_SCHEDULER_
 #define _TASK_SCHEDULER_
 
+#include <string>
 #include "HeapPriorityQueue.h"
 
 template <class ItemType>
@@ -10,11 +11,11 @@ class TaskScheduler : private HeapPriorityQueue<ItemType> {
     public:
         TaskScheduler();
 
-        void addTask(const std::string taskId, const int priority, const std::string taskDesc) ;
+        bool addTask(const std::string& taskId, int priority, const std::string taskDesc);
         void executeTask() ;
         void peekNextTask() const ;
         void displayTasks() const ;
-}
+};
 
 #include "../src/TaskScheduler.cpp"
 

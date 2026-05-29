@@ -1,6 +1,7 @@
 #include "TaskScheduler.h"
 #include "Task.h"
 #include <iostream>
+#include <string>
 
 
 // Constructor
@@ -15,7 +16,7 @@ TaskScheduler<ItemType>::TaskScheduler() {}
 
 // Creates task object and adds it to taskQueue
 template <typename ItemType>
-void TaskScheduler<ItemType>::addTask(const std::string taskId, const int priority, const std::string taskDesc) {
+bool TaskScheduler<ItemType>::addTask(const std::string& taskId, int priority, const std::string taskDesc) {
     Task currentTask;
     currentTask.id = taskId;
     currentTask.description = taskDesc;
