@@ -110,17 +110,17 @@ void ArrayMaxHeap<ItemType>::clear() {
 
 template <typename ItemType>
 int ArrayMaxHeap<ItemType>::getLeftChildIndex(const int nodeIndex) const {
-    return 2*nodeIndex;
-}
-
-template <typename ItemType>
-int ArrayMaxHeap<ItemType>::getRightChildIndex(int nodeIndex) const {
     return 2*nodeIndex + 1;
 }
 
 template <typename ItemType>
+int ArrayMaxHeap<ItemType>::getRightChildIndex(int nodeIndex) const {
+    return 2*nodeIndex + 2;
+}
+
+template <typename ItemType>
 int ArrayMaxHeap<ItemType>::getParentIndex(int nodeIndex) const {
-    return floor(nodeIndex/2);
+    return floor((nodeIndex-1)/2);
 }
 
 template <typename ItemType>
