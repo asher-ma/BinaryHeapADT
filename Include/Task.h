@@ -15,6 +15,12 @@ struct Task {
     bool operator<(const Task& other) const {
         return priority < other.priority;
     }
+    bool operator>=(const Task& other) const {
+        return priority >= other.priority;
+    }
+    bool operator<=(const Task& other) const {
+        return priority <= other.priority;
+    }
     bool operator==(const Task& other) const {
         return priority == other.priority;
     }
