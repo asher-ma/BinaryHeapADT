@@ -29,3 +29,8 @@ template <typename ItemType>
 ItemType HeapPriorityQueue<ItemType>::peek() const {
     return ArrayMaxHeap<ItemType>::peekTop();
 }
+
+template <typename ItemType>
+void HeapPriorityQueue<ItemType>::printQueue() const {
+    ArrayMaxHeap<ItemType>::printHeap();
+}

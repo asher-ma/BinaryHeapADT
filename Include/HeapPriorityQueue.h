@@ -14,7 +14,8 @@ class HeapPriorityQueue : private ArrayMaxHeap<ItemType>{
 
         ItemType peek() const; // throw (PrecondViolatedExcep);
 
-    }; // end Heap_PriorityQueue
+        void printQueue() const;
+    }; // end HeapPriorityQueue
 
 #include "../src/HeapPriorityQueue.cpp"
 
