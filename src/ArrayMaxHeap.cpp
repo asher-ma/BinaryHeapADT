@@ -14,7 +14,7 @@ ArrayMaxHeap<ItemType>::ArrayMaxHeap(bool isMinHeap)
 // Parameterized contructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int arraySize, bool isMinHeap)
-        : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[maxItems]), isMinHeap(isMinHeap) {
+        : itemCount(arraySize), maxItems(DEFAULT_CAPACITY), items(new ItemType[DEFAULT_CAPACITY]), isMinHeap(isMinHeap) {
     for (int i = 0; i < arraySize; i++) { // Copy array contents into heap array
         this->items[i] = someArray[i];
     }
@@ -160,7 +160,7 @@ void ArrayMaxHeap<ItemType>::heapRebuild(int subTreeRootIndex) {
 // Ensures items[] member array follows heap property
 template <typename ItemType>
 void ArrayMaxHeap<ItemType>::heapCreate() {
-    for (int i = itemCount/2; i >= 0; i--) { // On upper half of items, from middle to top
+    for (int i = itemCount/2-1; i >= 0; i--) { // On upper half of items, from middle to top
         heapRebuild(i); // Call heapRebuild 
     }
 }
