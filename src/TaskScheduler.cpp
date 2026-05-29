@@ -14,7 +14,7 @@ TaskScheduler<ItemType>::TaskScheduler() {}
 // -----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-bool TaskScheduler<ItemType>::addTask(const string taskId, const string taskDesc, const int priority) {
+bool TaskScheduler<ItemType>::addTask(const std::string taskId, const int priority, const std::string taskDesc) {
     Task currentTask;
     currentTask.id = taskId;
     currentTask.description = taskDesc;
