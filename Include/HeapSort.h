@@ -2,7 +2,7 @@
 #define _HEAP_SORT_H_
 
 template <typename ItemType>
-void heapSort(ItemType someArray[], const int arraySize, bool isMinHeap = false);
+void heapSort(ItemType someArray[], const int arraySize);
 
 #include "../src/HeapSort.cpp"
 

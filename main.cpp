@@ -50,17 +50,6 @@ int main (){
     for (int item : array2) {
         std::cout << item << " ";
     }
-
-    // Sort array in reverse
-    std::cout << "\nReverse Sorting...";
-    heapSort(array2, 10, true);
-
-    // Print sorted array
-    std::cout << "\nMinHeap Sorted Array (reverse): ";
-    for (int item : array2) {
-        std::cout << item << " ";
-    }
-
     std::cout << "\n";
     return 0;
 }
