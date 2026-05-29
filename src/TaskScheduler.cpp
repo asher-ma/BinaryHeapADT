@@ -39,13 +39,6 @@ void TaskScheduler<ItemType>::peekNextTask() const {
 template <typename ItemType>
 void TaskScheduler<ItemType>::displayTasks() const {
     std::cout << "All tasks: " << std::endl;
-    HeapPriorityQueue<Task> dupeQueue(taskQueue);
-    while(!dupeQueue.isEmpty()) { // While queue is not empty
-        std::cout << dupeQueue.peek(); // Print task
-        heap.remove(); // Remove task
-        if (!dupeQueue.isEmpty()) { // If not empty
-            std::cout << "  |  "; // Print spacer
-        }
-    }
+    taskQueue.printQueue();
     std::cout << std::endl;
 }
