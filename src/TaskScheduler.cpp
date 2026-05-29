@@ -19,7 +19,7 @@ bool TaskScheduler<ItemType>::addTask(const std::string taskId, const int priori
     currentTask.id = taskId;
     currentTask.description = taskDesc;
     currentTask.priority = priority;
-    return ArrayMaxHeap<Task>::add(currentTask);
+    return taskQueue.add(currentTask);
 }
 
 template <typename ItemType>

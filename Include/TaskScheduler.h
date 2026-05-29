@@ -5,6 +5,8 @@
 
 template <class ItemType>
 class TaskScheduler : private HeapPriorityQueue<ItemType> {
+    private:
+        HeapPriorityQueue<Task> taskQueue;
     public:
         TaskScheduler();
 
