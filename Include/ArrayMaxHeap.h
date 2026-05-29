@@ -37,6 +37,7 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         bool add(const ItemType& newData);
         bool remove();
         void clear();
+        void printHeap() const ;
 }; // end ArrayMaxHeap
 
 #include "../src/ArrayMaxHeap.cpp"

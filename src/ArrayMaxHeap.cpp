@@ -1,6 +1,7 @@
 #include "HeapInterface.h"
 #include "ArrayMaxHeap.h"
 #include <cmath>
+#include <iostream>
 
 
 // Constructors
@@ -113,6 +114,20 @@ void ArrayMaxHeap<ItemType>::clear() {
         items[i] = ItemType(); // Clear it
     }
     itemCount = 0;
+}
+
+// Creates duplicate heap and prints each item while deconstructing it
+template <typename ItemType>
+void ArrayMaxHeap<ItemType>::printHeap() const {
+    ArrayMaxHeap<ItemType> dupeHeap(*this);
+    while(!dupeHeap.isEmpty()) { // While heap is not empty
+        std::cout << dupeHeap.peekTop(); // Print item
+        dupeHeap.remove(); // Remove item
+        if (!dupeHeap.isEmpty()) { // If not empty
+            std::cout << "  |  "; // Print spacer
+        }
+    }
+    std::cout << std::endl;
 }
 
 
