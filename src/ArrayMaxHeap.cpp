@@ -124,7 +124,7 @@ void ArrayMaxHeap<ItemType>::printHeap() const {
         std::cout << dupeHeap.peekTop(); // Print item
         dupeHeap.remove(); // Remove item
         if (!dupeHeap.isEmpty()) { // If not empty
-            std::cout << "  |  "; // Print spacer
+            std::cout << ", "; // Print spacer
         }
     }
     std::cout << std::endl;
