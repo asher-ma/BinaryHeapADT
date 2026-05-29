@@ -31,6 +31,21 @@ ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ArrayMaxHeap& other)
     }
 }
 
+// Copy assignment operator
+template <typename ItemType>
+ArrayMaxHeap<ItemType>& ArrayMaxHeap<ItemType>::operator=(const ArrayMaxHeap& other) {
+    if (this != &other) {
+        delete[] items;
+        itemCount = other.itemCount;
+        maxItems = other.maxItems;
+        isMinHeap = other.isMinHeap;
+        items = new ItemType[maxItems];
+        for (int i = 0; i < itemCount; i++)
+            items[i] = other.items[i];
+    }
+    return *this;
+}
+
 // Destructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {

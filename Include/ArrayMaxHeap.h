@@ -27,6 +27,7 @@ class ArrayMaxHeap : public HeapInterface<ItemType> {
         ArrayMaxHeap(bool isMinHeap = false); // Constructors default to maxHeap
         ArrayMaxHeap(const ItemType someArray[], const int arraySize, bool isMinHeap = false);
         ArrayMaxHeap(const ArrayMaxHeap& other); // Copy constructor
+        ArrayMaxHeap& operator=(const ArrayMaxHeap& other); // Copy operator
         virtual ~ArrayMaxHeap();
 
         // HeapInterface Public Methods:
