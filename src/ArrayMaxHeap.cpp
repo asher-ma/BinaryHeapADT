@@ -21,6 +21,15 @@ ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int array
     this->heapCreate(); // Reorder contents to obey heap condition
 }
 
+// Copy constructor
+template <typename ItemType>
+ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ArrayMaxHeap& other)
+        : itemCount(other.itemCount), maxItems(other.maxItems), isMinHeap(other.isMinHeap), items(new ItemType[other.maxItems]) {
+    for (int i = 0; i < itemCount; i++) { // Copy other.items contents into new heap array
+        this->items[i] = other.items[i];
+    }
+}
+
 // Destructor
 template <typename ItemType>
 ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {
