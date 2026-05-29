@@ -14,7 +14,7 @@ TaskScheduler<ItemType>::TaskScheduler() {}
 // -----------------------------------------------------------------------------------------
 
 template <typename ItemType>
-bool TaskScheduler<ItemType>::addTask(const std::string taskId, const int priority, const std::string taskDesc) {
+void TaskScheduler<ItemType>::addTask(const std::string taskId, const int priority, const std::string taskDesc) {
     Task currentTask;
     currentTask.id = taskId;
     currentTask.description = taskDesc;
@@ -23,10 +23,10 @@ bool TaskScheduler<ItemType>::addTask(const std::string taskId, const int priori
 }
 
 template <typename ItemType>
-bool TaskScheduler<ItemType>::executeTask() {}
+void TaskScheduler<ItemType>::executeTask() {}
 
 template <typename ItemType>
-ItemType TaskScheduler<ItemType>::peekNextTask() const {}
+void TaskScheduler<ItemType>::peekNextTask() const {}
 
 template <typename ItemType>
 void TaskScheduler<ItemType>::displayTasks() const {}

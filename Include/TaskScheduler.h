@@ -10,9 +10,9 @@ class TaskScheduler : private HeapPriorityQueue<ItemType> {
     public:
         TaskScheduler();
 
-        bool addTask(const std::string taskId, const int priority, const std::string taskDesc) ;
-        bool executeTask() ;
-        ItemType peekNextTask() const ;
+        void addTask(const std::string taskId, const int priority, const std::string taskDesc) ;
+        void executeTask() ;
+        void peekNextTask() const ;
         void displayTasks() const ;
 }
 
