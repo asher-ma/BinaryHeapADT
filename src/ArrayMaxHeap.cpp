@@ -23,7 +23,9 @@ ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[], const int array
 
 // Destructor
 template <typename ItemType>
-ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {}
+ArrayMaxHeap<ItemType>::~ArrayMaxHeap() {
+    delete[] items;
+}
 
 
 // Public methods
