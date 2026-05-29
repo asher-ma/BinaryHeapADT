@@ -1,8 +1,10 @@
 #ifndef _TASK_SCHEDULER_
 #define _TASK_SCHEDULER_
 
-#include <string>
 #include "HeapPriorityQueue.h"
+#include "Task.h"
+
+#include <string>
 
 template <class ItemType>
 class TaskScheduler : private HeapPriorityQueue<ItemType> {
