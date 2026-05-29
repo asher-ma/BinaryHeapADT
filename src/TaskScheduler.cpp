@@ -23,7 +23,10 @@ void TaskScheduler<ItemType>::addTask(const std::string taskId, const int priori
 }
 
 template <typename ItemType>
-void TaskScheduler<ItemType>::executeTask() {}
+void TaskScheduler<ItemType>::executeTask() {
+    std::cout << "Executing task: " << taskQueue.peek().id;
+    taskQueue.remove();
+}
 
 template <typename ItemType>
 void TaskScheduler<ItemType>::peekNextTask() const {}
